@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{819cd70f-645a-4131-aa89-cab9ae675c31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Imgui">
+      <UniqueIdentifier>{a13ca8d1-4912-47fe-af58-d003c1a2799b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Window">
+      <UniqueIdentifier>{4fb4f20f-c953-4045-aced-5fdf7135bcde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Window">
+      <UniqueIdentifier>{33d082e5-39d9-4958-bec7-b87068ea5187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Object">
+      <UniqueIdentifier>{5c6a0e1f-9d5c-4700-acdf-74641e55c503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Object">
+      <UniqueIdentifier>{c1ed4154-2253-4387-8caf-bc5bb97303a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Light">
+      <UniqueIdentifier>{889f5737-c48b-49e7-8422-a569cdb8cdbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Light">
+      <UniqueIdentifier>{345d1993-1416-4f38-9df5-7af55bb71239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Help">
+      <UniqueIdentifier>{8e82a5dc-30c2-412e-b22f-8c563a230692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Help">
+      <UniqueIdentifier>{e4765f5d-afb8-4f50-82d1-7ba251e424a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\PBR">
+      <UniqueIdentifier>{2e80bc11-e217-4612-85b0-a3d44c5de2f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\PBR">
+      <UniqueIdentifier>{a4d3d687-560e-4c02-8ae2-544027f8f44e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="glad.c">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_glfw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_opengl3.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_tables.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="LeftWindow.cpp">
+      <Filter>源文件\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="RightWindow.cpp">
+      <Filter>源文件\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Program.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image_write.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Help.cpp">
+      <Filter>源文件\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>源文件\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="LUT.cpp">
+      <Filter>源文件\PBR</Filter>
+    </ClCompile>
+    <ClCompile Include="Prefilter.cpp">
+      <Filter>源文件\PBR</Filter>
+    </ClCompile>
+    <ClCompile Include="Irradiance.cpp">
+      <Filter>源文件\PBR</Filter>
+    </ClCompile>
+    <ClCompile Include="loadresource.cpp">
+      <Filter>源文件\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>源文件\Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imgui\imgui.ini">
+      <Filter>Imgui</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h">
+      <Filter>头文件\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftWindow.h">
+      <Filter>头文件\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="RightWindow.h">
+      <Filter>头文件\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Program.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>头文件\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Help.h">
+      <Filter>头文件\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>头文件\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>头文件\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>头文件\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>头文件\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="LUT.h">
+      <Filter>头文件\PBR</Filter>
+    </ClInclude>
+    <ClInclude Include="Prefilter.h">
+      <Filter>头文件\PBR</Filter>
+    </ClInclude>
+    <ClInclude Include="Irradiance.h">
+      <Filter>头文件\PBR</Filter>
+    </ClInclude>
+    <ClInclude Include="loadresource.h">
+      <Filter>头文件\Help</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
