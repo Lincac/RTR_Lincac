@@ -15,6 +15,7 @@ public:
 
 	std::shared_ptr<Object>& get_object();
 	void set_object(std::shared_ptr<Object>& obj); 
+	void reset();
 private:
 	std::shared_ptr<FrameBuffer> framebuffer;
 	std::shared_ptr<Object> object;

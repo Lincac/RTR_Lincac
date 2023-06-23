@@ -27,12 +27,6 @@
     <Filter Include="源文件\Object">
       <UniqueIdentifier>{c1ed4154-2253-4387-8caf-bc5bb97303a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Light">
-      <UniqueIdentifier>{889f5737-c48b-49e7-8422-a569cdb8cdbf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Light">
-      <UniqueIdentifier>{345d1993-1416-4f38-9df5-7af55bb71239}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\Help">
       <UniqueIdentifier>{8e82a5dc-30c2-412e-b22f-8c563a230692}</UniqueIdentifier>
     </Filter>
@@ -44,6 +38,12 @@
     </Filter>
     <Filter Include="源文件\PBR">
       <UniqueIdentifier>{a4d3d687-560e-4c02-8ae2-544027f8f44e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Object\Model">
+      <UniqueIdentifier>{c49fa006-2c19-44f7-b1b7-45a621b4c27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Object\Model">
+      <UniqueIdentifier>{567fc3da-451c-48ca-b0db-fa7dcfa56722}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,10 +121,25 @@
       <Filter>源文件\Help</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
-      <Filter>源文件\Object</Filter>
+      <Filter>源文件\Object\Model</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
-      <Filter>源文件\Object</Filter>
+      <Filter>源文件\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>源文件\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationData.cpp">
+      <Filter>源文件\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationHelp.cpp">
+      <Filter>源文件\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>源文件\Object\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Bone.cpp">
+      <Filter>源文件\Object\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +178,6 @@
     <ClInclude Include="Texture.h">
       <Filter>头文件\Help</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>头文件\Light</Filter>
-    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>头文件\Help</Filter>
     </ClInclude>
@@ -176,12 +188,6 @@
       <Filter>头文件\Object</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
-      <Filter>头文件\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>头文件\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
       <Filter>头文件\Object</Filter>
     </ClInclude>
     <ClInclude Include="LUT.h">
@@ -195,6 +201,27 @@
     </ClInclude>
     <ClInclude Include="loadresource.h">
       <Filter>头文件\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Bone.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationHelp.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationData.h">
+      <Filter>头文件\Object\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>头文件\Object\Model</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

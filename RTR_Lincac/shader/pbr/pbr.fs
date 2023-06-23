@@ -12,30 +12,32 @@ const float PI = 3.14159265359;
 
 uniform sampler2D Albedo;
 uniform sampler2D Normal;
+uniform sampler2D Specular;
 uniform sampler2D Metallic;
 uniform sampler2D Roughness;
 uniform sampler2D Ao;
 
+uniform vec3 viewPos;
+
+uniform vec3 _Color;
+uniform vec3 _Specular;
+uniform vec3 LightDir;
+uniform vec3 LightCol;
+uniform float _Roughness;
+uniform float _Metallic;
+uniform float _Ao;
+
 uniform bool use_albedoMap;
 uniform bool use_normalMap;
+uniform bool use_specularMap; 
 uniform bool use_roughnessMap;
 uniform bool use_metallicMap;
 uniform bool use_aoMap;
 uniform bool use_skybox;
 
-uniform vec3 _Color;
-uniform float _Roughness;
-uniform float _Metallic;
-uniform float _Ao;
-
 uniform samplerCube irradianceMap;
 uniform samplerCube prefilterMap;
 uniform sampler2D LUTMap;
-
-uniform vec3 viewPos;
-
-uniform vec3 LightDir;
-uniform vec3 LightCol;
 
 vec3 fresnelSchlick(float cosTheta,vec3 F0){  // 计算不同观测角度的反射率
     return F0 + (1.0 - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
@@ -99,6 +101,7 @@ void main(){
     float metallic = use_metallicMap ? texture(Metallic,fs_in.TexCoords).r : _Metallic;
     float roughness = use_roughnessMap ? texture(Roughness,fs_in.TexCoords).r : _Roughness;
     float ao = use_aoMap ? texture(Ao,fs_in.TexCoords).r : _Ao;
+    vec3 _specularCol = use_specularMap ? texture(Specular,fs_in.TexCoords).rgb : _Specular;
 
     vec3 N = normal;
     vec3 V = normalize(viewPos - fs_in.FragPos);
@@ -122,7 +125,7 @@ void main(){
 
     vec3 nominator = NDF * G * F;
     float denominator = 4.0 * max(dot(N,V),0.0) * max(dot(N,L),0.0) + 0.0001;
-    vec3 specular = nominator / denominator ;
+    vec3 specular = _specularCol * nominator / denominator ;
 
     float NdotL = max(dot(N,L),0.0);
     L0 += (diffuse + specular) * LightCol * NdotL * ao;

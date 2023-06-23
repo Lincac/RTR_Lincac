@@ -26,16 +26,30 @@ Program::Program() {
 	prefilter = std::make_shared<Prefilter>(skybox);
 	irradiance = std::make_shared<Irradiance>(skybox);
 
-	shader = std::make_shared<Shader>("shader/pbr/pbr.vs", "shader/pbr/pbr.fs");
-	shader->use();
-	shader->setInt("Albedo", 0);
-	shader->setInt("Normal", 1);
-	shader->setInt("Metallic", 2);
-	shader->setInt("Roughness", 3);
-	shader->setInt("Ao", 4);
-	shader->setInt("irradianceMap", 5);
-	shader->setInt("prefilterMap", 6);
-	shader->setInt("LUTMap", 7);
+	std::shared_ptr<Shader> pbr = std::make_shared<Shader>("shader/pbr/pbr.vs", "shader/pbr/pbr.fs");
+	pbr->use();
+	pbr->setInt("Albedo", 0);
+	pbr->setInt("Normal", 1);
+	pbr->setInt("Specular", 2);
+	pbr->setInt("Metallic", 3);
+	pbr->setInt("Roughness", 4);
+	pbr->setInt("Ao", 5);
+	pbr->setInt("irradianceMap", 6);
+	pbr->setInt("prefilterMap", 7);
+	pbr->setInt("LUTMap", 8);
+	hashShader.emplace("PBR", pbr);
+	shader = pbr;
+
+	std::shared_ptr<Shader> blinphone = std::make_shared<Shader>("shader/blinphone/blinphone.vs", "shader/blinphone/blinphone.fs");
+	blinphone->use();
+	blinphone->setInt("Albedo", 0);
+	blinphone->setInt("Normal", 1);
+	hashShader.emplace("BlinPhone", blinphone);
+
+	std::shared_ptr<Shader> dataView = std::make_shared<Shader>("shader/dataView/view.vs", "shader/dataView/view.fs");
+	dataView->use();
+	dataView->setInt("show_texture", 0);
+	hashShader.emplace("dataView", dataView);
 }
 
 Program::~Program(){}
@@ -43,6 +57,12 @@ Program::~Program(){}
 void Program::run() {
 	while (!glfwWindowShouldClose(window))
 	{
+		float currentFrame = float(glfwGetTime());
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
+		glPolygonMode(GL_FRONT_AND_BACK, renderMode);
+
 		processInput(window);
 
 		projection = glm::perspective(glm::radians(camera.Zoom), GLfloat(HEIGHT) / GLfloat(HEIGHT), camera.nearPlane, camera.farPlane);

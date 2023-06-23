@@ -62,22 +62,14 @@ void LeftWindow::render(const GLuint& image) {
 			if (ImGui::BeginMenu("RenderMode"))
 			{
 				if (ImGui::MenuItem("BlinPhone")) {
-					shader = std::make_shared<Shader>("shader/blinphone/blinphone.vs", "shader/blinphone/blinphone.fs");
-					shader->use();
-					shader->setInt("Albedo", 0);
-					shader->setInt("Normal", 1);
+					Mode = "BlinPhone";
+					preMode = "BlinPhone";
+					shader = hashShader.at("BlinPhone");
 				}
 				if (ImGui::MenuItem("PBR")) {
-					shader = std::make_shared<Shader>("shader/pbr/pbr.vs", "shader/pbr/pbr.fs");
-					shader->use();
-					shader->setInt("Albedo", 0);
-					shader->setInt("Normal", 1);
-					shader->setInt("Metallic", 2);
-					shader->setInt("Roughness", 3);
-					shader->setInt("Ao", 4);
-					shader->setInt("irradianceMap", 5);
-					shader->setInt("prefilterMap", 6);
-					shader->setInt("LUTMap", 7);
+					Mode = "PBR";
+					preMode = "PBR";
+					shader = hashShader.at("PBR");
 				}
 				if (ImGui::MenuItem("Cartoon")) {
 

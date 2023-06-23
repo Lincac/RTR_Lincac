@@ -9,17 +9,20 @@ in VS_OUT {
 
 uniform sampler2D Albedo;
 uniform sampler2D Normal;
+uniform sampler2D Specular;
 
-uniform vec3 LightCol;
-uniform vec3 LightDir;
 uniform vec3 viewPos;
+
 uniform vec3 _Color;
 uniform vec3 _Specular;
-
+uniform vec3 LightCol;
+uniform vec3 LightDir;
 uniform float Gloss;
+uniform vec3 Ambient;
+
 uniform bool use_albedoMap;
 uniform bool use_normalMap;
-uniform vec3 Ambient;
+uniform bool use_specularMap;
 
 vec3 getNormalFromMap()
 {
@@ -55,7 +58,8 @@ void main()
     // diffuse
     vec3 diffuse = LightCol * albedo * max(dot(LightDir, normal), 0.0);
     // specular
-    vec3 specular = LightCol * _Specular * pow(max(dot(halfwayDir,normal), 0.0), Gloss);    
+    vec3 _specularCol = use_specularMap ? texture(Specular,fs_in.TexCoords).rgb : _Specular;
+    vec3 specular = LightCol * _specularCol * pow(max(dot(halfwayDir,normal), 0.0), Gloss);    
     vec3 color = ambient + diffuse + specular;
     
     vec3 mapped = color / (color + vec3(1.0));   // hdr to ldr

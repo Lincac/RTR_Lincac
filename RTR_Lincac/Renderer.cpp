@@ -11,6 +11,7 @@ Renderer::~Renderer() {
 
 void Renderer::render() {
 	if (ChangeObj) {
+		reset();
 		if (dir == "Cube") {
 			object = std::make_shared<Cube>();
 			_PlaneY = -1.0f;
@@ -36,6 +37,7 @@ void Renderer::render() {
 		ChangeObj = false;
 		dir = "";
 	}
+
 	framebuffer->render(object);
 }
 
@@ -49,4 +51,23 @@ std::shared_ptr<Object>& Renderer::get_object() {
 
 void Renderer::set_object(std::shared_ptr<Object>& obj) {
 	object = obj;
+}
+
+void Renderer::reset() {
+	Albedo = 0;
+	Normal = 0;
+	Specular = 0;
+	Roughness = 0;
+	Metallic = 0;
+	Ao = 0;
+
+	use_albedoMap = false;
+	use_normalMap = false;
+	use_specularMap = false;
+	use_roughnessMap = false;
+	use_metallicMap = false;
+	use_aoMap = false;
+
+	vertexNum = 0;
+	triangleNum = 0;
 }

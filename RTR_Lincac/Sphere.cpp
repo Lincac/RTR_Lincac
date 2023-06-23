@@ -101,4 +101,7 @@ void Sphere::init() {
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
+	vertexNum = positions.size();
+	triangleNum = GLuint(indices.size() / 3);
 }

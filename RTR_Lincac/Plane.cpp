@@ -10,6 +10,8 @@ Plane::~Plane() {
 }
 
 void Plane::render() {
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 	glm::mat4 model(1.0);
 	planeshader->use();
 	planeshader->setMat4("MVP",projection * view * model);

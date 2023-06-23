@@ -19,17 +19,24 @@ struct Vertex {
     float m_Weights[MAX_BONE_INFLUENCE];
 };
 
+struct Texture {
+    unsigned int id;
+    string type;
+    string path;
+};
+
 class Mesh {
 public:
     vector<Vertex>       vertices;
     vector<unsigned int> indices;
+    vector<Texture>      textures;
     unsigned int VAO;
-    Mesh(vector<Vertex> vertices, vector<unsigned int> indices);
+
+    Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures);
     ~Mesh();
     void Draw();
+    void setupMesh();
 private:
     unsigned int VBO, EBO;
-
-    void setupMesh();
 };
 #endif

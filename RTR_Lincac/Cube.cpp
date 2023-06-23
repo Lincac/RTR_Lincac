@@ -1,6 +1,8 @@
 #include"Cube.h"
 
 Cube::Cube() {
+	vertexNum = 36;
+	triangleNum = 12;
 	init();
 }
 

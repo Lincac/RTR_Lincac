@@ -50,9 +50,17 @@ public:
     }
 
     void update(glm::vec3 newcenter) {
+        Front = glm::vec3(0, 0, -1);
+        WorldUp = glm::vec3(0, 1, 0);
+        Yaw = YAW;
+        Pitch = PITCH;
+        Zoom = ZOOM;
+        nearPlane = 0.1f;
+        farPlane = 100.0f;
         center = newcenter;
         Position = newcenter + glm::vec3(0.0f, 0.0f, 4.0f);
         camera_length = glm::length(Position - newcenter);
+
         updateCameraVectors();
     }
 

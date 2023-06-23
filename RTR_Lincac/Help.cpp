@@ -1,5 +1,11 @@
 #include"Help.h"
 
+// 时间
+GLfloat _time = 0.0f;
+
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
+
 // 鼠标控制
 bool mouseClick = false;
 float lastx = 0, lasty = 0;
@@ -22,16 +28,39 @@ std::shared_ptr<Shader> shader = nullptr;
 // 全局物体设置
 GLuint Albedo = 0;
 GLuint Normal = 0;
+GLuint Specular = 0;
 GLuint Roughness = 0;
 GLuint Metallic = 0;
 GLuint Ao = 0;
 
 glm::vec3	_Color = glm::vec3(1.0f);
 glm::vec3	_Specular = glm::vec3(1.0f);
+float _Gloss = 64.0f;
+float _Roughness = 0.3f;
+float _Metallic = 0.3f;
+float _Ao = 1.0f;
+
 glm::vec3	center = glm::vec3(0.0f);
 float _PlaneY = -1.0f;
+
+bool use_albedoMap = false;
+bool use_normalMap = false;
+bool use_specularMap = false;
+bool use_roughnessMap = false;
+bool use_metallicMap = false;
+bool use_aoMap = false;
+bool use_skybox = false;
+bool use_animation = false;
+
 bool ChangeObj = false;
 std::string dir = "";
+std::string animation_file = "";
+
+bool show = false;
+GLuint show_texture = 0;
+
+GLuint vertexNum = 0;
+GLuint triangleNum = 0;
 
 // 全局光源设置
 glm::vec3 LightPos = glm::vec3(1.0f);
@@ -39,21 +68,19 @@ glm::vec3	 LightCol = glm::vec3(1.0f);
 glm::vec3 bgColor = glm::vec3(0.2784f);
 glm::vec3 ambient = glm::vec3(0.05f);
 float LightVol = 3.0f;
+float angle = 45.0f;
 
 // 当前渲染模式
+std::string preMode = "PBR";
 std::string Mode = "PBR";
+GLenum renderMode = GL_FILL;
 
-// 参数设置
-float _Gloss = 64.0f;
-bool use_albedoMap = false;
-bool use_normalMap = false;
-bool use_roughnessMap = false;
-bool use_metallicMap = false;
-bool use_aoMap = false;
-bool use_skybox = false;
-float _Roughness = 0.3f;
-float _Metallic = 0.3f;
-float _Ao = 1.0f;
+// 动画设置
+bool display_animation = false;
+std::string animation_mode = "NULL";
+
+// 着色器对象池
+std::unordered_map<std::string, std::shared_ptr<Shader>> hashShader;
 
 // 纹理池子
 std::unordered_map<std::string, GLuint> textures = std::unordered_map<std::string,GLuint>();
